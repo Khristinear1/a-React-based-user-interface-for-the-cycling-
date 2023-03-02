@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <title>Crud Operation</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="topnav">
+    <a href="index.html">Home</a>
+    <a class="active" href="myride.html">MyRide</a>
+    <a href="mybmi.html">MyBMI</a>
+    <a href="#Login">Login</a>
+    <a href="#Logout">logout</a>      
+    <div style="padding-left:16px">
+    <h2>MyCycleApp</h2>
+    <p>Navigation bar with a search box and a submit button inside of it.</p>
+    <p>Resize the browser window to see the responsive effect.</p>
+</div>      
+
+<h2>Track Your Health</h2>
+<p>Click on the button to open the dropdown menu, and use the input field to search for a specific dropdown link.</p>
+</div>
+    <table>
+        <tr>
+            <td>
+                <form autocomplete="off" onsubmit="onFormSubmit()">
+                    <div>
+                        <label for="nameId">Name/ID</label>
+                        <input type="text" name="nameId" id="nameId">
+                    </div>
+                    <div>
+                        <label for="destination">Destination</label>
+                        <input type="text" name="destination" id="destination">
+                    </div>
+                    <div>
+                        <label for="kms">Kilometers travelled</label>
+                        <input type="number" name="kms" id="kms">
+                    </div>
+                    <div>
+                        <label for="burnedCal">Calories Burned</label>
+                        <input type="number" name="burnedCal" id="burnedCal">
+                    </div>
+
+                    <div class="form_action--button">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+
+                <td>
+                    <table class="list" id="myRide">
+                        <thead>
+                            <tr>
+                                <th>Name/ID</th>
+                                <th>Destination</th>
+                                <th>Kilometers travelled</th>
+                                <th>Calories Burned</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </td>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>

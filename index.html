@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <div class="topnav">
+      <a class="active" href="index.html">Home</a>
+      <a href="myride.html">MyRide</a>
+      <a href="mybmi.html">MyBMI</a>
+      <a href="#Login">Login</a>
+      <a href="#Logout">logout</a>      
+      <div style="padding-left:16px">
+      <h2>MyCycleApp</h2>
+      <p>Navigation bar with a search box and a submit button inside of it.</p>
+      <p>Resize the browser window to see the responsive effect.</p>
+  </div>      
+
+  <h2>Search/Filter Dropdown</h2>
+  <p>Click on the button to open the dropdown menu, and use the input field to search for a specific dropdown link.</p>
+  </div>
+
+  <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Search For Destination Info</button>
+      <div id="myDropdown" class="dropdown-content">
+        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+        <a href="#">Bottlelake Forest Park</a>
+        <a href="#">Coastal Ride to Spencer Park</a>
+        <a href="#">Port Hills</a>
+        <a href="#">North Hagley Park</a>
+        <a href="#">Bowenvale Valley</a>
+        <a href="#">Bowenvale Traverse Track</a>
+        <a href="#">Bridle Path</a>
+        <a href="#">Mt Vernon Track </a>
+        <a href="#">Craigieburn Forest</a>
+        <a href="#">The Crater Rim - Port Hills</a>
+        <a href="#">Sumner - Godley Head Loopk</a>
+        <a href="#">Port Hills Traverse</a>
+        <a href="#">Kennedys bush to Sumner and back</a>
+        <a href="#">Godley Head to Mount Pleasant Loop</a>
+
+      </div>
+  </div>
+
+  <p>Click the button to sort the Destination, by name:</p>
+
+  <h3>Add Recommended Destination</h3>
+  <button id="name">Recommend Destination</button>
+  <button id="kms">Kilometers you've done</button>
+
+  <table id="myTable">
+    <tr>
+      <th>Destination</th>
+      <th>Kms</th>
+    </tr>
+      <tr>
+      <td><span id="outputDestination">Recommended</span></td>
+      <td><span id="outputKms">____</span></td>
+    </tr>
+    <tr>
+      <td>Bottlelake Forest Park</td>
+      <td>8.5kms</td>
+    </tr>
+    <tr>
+      <td>Coastal Ride to Spencer Park</td>
+      <td>10.2km </td>
+    </tr>
+    <tr>
+      <td>Port Hills</td>
+      <td>8.6km</td>
+    </tr>
+    <tr>
+      <td>North Hagley Park</td>
+      <td>5.3km</td>
+    </tr>
+    <tr>
+      <td>Bowenvale Valley</td>
+      <td>8.23km</td>
+    </tr>
+    <tr>
+      <td>Bowenvale Traverse Track</td>
+      <td>2.3km</td>
+    </tr>
+    <tr>
+      <td>Bridle Path</td>
+      <td>2.57km</td>
+    </tr>
+    <tr>
+      <td>Mt Vernon Track</td>
+      <td>2.4km</td>
+    </tr>
+    <tr>
+      <td>Craigieburn Forest</td>
+      <td>5.7km</td>
+    </tr>
+    <tr>
+      <td>The Crater Rim - Port Hills</td>
+      <td>6.5km</td>
+    </tr>
+    <tr>
+      <td>Sumner - Godley Head Loopk</td>
+      <td>3.8km</td>
+    </tr>
+    <tr>
+      <td>Port Hills Traverse</td>
+      <td>6.0km</td>
+    </tr>
+    <tr>
+      <td>Kennedys bush to Sumner and back</td>
+      <td>9.0km</td>
+    </tr>
+    <tr>
+      <td>Godley Head to Mount Pleasant Loop</td>
+      <td>5.6km</td>
+    </tr>
+  </table>
+  <p class="sort"><button onclick="sortTable()">Sort Destinations</button></p>
+
+
+<script> /*let users Add a part quickly */
+  document.getElementById("name").onclick = function(){
+    var name = prompt("Enter your Destination");
+    document.getElementById("outputDestination").innerText = name;
+  }
+
+  document.getElementById("kms").onclick = function(){
+    var city = prompt("Enter your city");
+    document.getElementById("outputKms").innerText = city;
+  }
+/*Filter parts – filter “on/off” and at least 2 more filter options*/
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("a");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
+    }
+
+/*Sort parts – at least 2 different sort orders*/
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows:*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*two elements to compare,*/
+      x = rows[i].getElementsByTagName("TD")[0];
+      y = rows[i + 1].getElementsByTagName("TD")[0];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        // mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+
+</body>
+</html>

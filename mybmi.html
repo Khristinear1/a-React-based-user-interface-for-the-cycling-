@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <div class="topnav">
+      <a class="active" href="index.html">Home</a>
+      <a href="myride.html">MyRide</a>
+      <a href="mybmi.html">MyBMI</a>
+      <a href="#Login">Login</a>
+      <a href="#Logout">logout</a>      
+      <div style="padding-left:16px">
+      <h2>MyCycleApp</h2>
+      <p>Navigation bar with a search box and a submit button inside of it.</p>
+      <p>Resize the browser window to see the responsive effect.</p>
+  </div> 
+  <h2>Track Your Health</h2>
+  <p>Click on the button to open the dropdown menu, and use the input field to search for a specific dropdown link.</p>
+  </div>     
+
+    <div class="bmicalc">
+    <p>Height in CM:
+        <input type="text" id="height"><br><span id="height_error"></span>
+    </p>
+
+    <p>Weight in KG:
+        <input type="text" id="weight"><br><span id="weight_error"></span>
+    </p>
+
+    <button id="btn">Calculate</button>
+    <p id="output"></p>
+    </div>
+
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
